@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ResistanceIsFutile</string>
+    <string name="menu">MENU</string>
+    <string name="title">Resistance Is Futile</string>
+    <string name="how_to_play">HOW TO PLAY</string>
+    <string name="learning_mode">LEARNING MODE</string>
+    <string name="new_game">NEW GAME</string>
+    <string name="continue_game">CONTINUE</string>
 </resources>
