@@ -1,4 +1,4 @@
-package com.example.gratest;
+package com.example.resistance_is_futile;
 
 import org.junit.Test;
 
