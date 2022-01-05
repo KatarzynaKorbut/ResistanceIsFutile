@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private Button button_how_to_play;
     private Button button_learning_mode;
+    private Button button_new_game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         button_how_to_play.setOnClickListener(v -> openHowToPlay());
         button_learning_mode = findViewById(R.id.learning_mode);
         button_learning_mode.setOnClickListener(v -> openLearningMode());
+        button_new_game = findViewById(R.id.start_new_game);
+        button_new_game.setOnClickListener(v -> openNewGame());
+
     }
 
     public void openHowToPlay() {
@@ -37,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openLearningMode() {
         Intent intent = new Intent(this, LearningMode.class);
+        startActivity(intent);
+    }
+
+    public void openNewGame() {
+        Intent intent = new Intent(this, NewGame.class);
         startActivity(intent);
     }
 }
