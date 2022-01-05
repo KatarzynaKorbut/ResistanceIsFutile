@@ -10,6 +10,32 @@ import android.widget.ImageButton;
 
 public class NewGame extends AppCompatActivity {
     private ImageButton button_powrot;
+    private ImageButton button_pasek;
+
+    public enum Bands {
+        ZERO(R.color.res_black),
+        ONE(R.color.res_brown),
+        TWO(R.color.res_red),
+        THREE(R.color.res_orange),
+        FOUR(R.color.res_yellow),
+        FIVE(R.color.res_green),
+        SIX(R.color.res_blue),
+        SEVEN(R.color.res_purple),
+        EIGHT(R.color.res_grey),
+        NINE(R.color.res_white),
+        TEN(R.color.res_silver),
+        ELEVEN(R.color.res_gold);
+
+        private int color;
+
+        Bands(int color) {
+            this.color = color;
+        }
+
+        public int getColor(){
+            return this.color;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
