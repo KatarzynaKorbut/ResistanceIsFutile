@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ResistanceIsFutile">
         <activity
+            android:name=".LearningMode"
+            android:exported="true" />
+        <activity
             android:name=".HowToPlay"
             android:exported="true" />
         <activity
