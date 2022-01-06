@@ -8,14 +8,17 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="button_lcd_bg">#282923</color>
+    <color name="button_lcd_fg">#D2FE35</color>
+
     <color name="res_black">#000000</color>
     <color name="res_brown">#663330</color>
     <color name="res_red">#FE0003</color>
     <color name="res_orange">#FF6600</color>
     <color name="res_yellow">#FFFE01</color>
     <color name="res_green">#32CB33</color>
-    <color name="res_blue">#6965FF</color>
-    <color name="res_purple">#C767FF</color>
+    <color name="res_blue">#3D64FF</color>
+    <color name="res_purple">#AE67FF</color>
     <color name="res_grey">#939393</color>
     <color name="res_white">#FFFFFF</color>
     <color name="res_silver">#CBCCD0 </color>
