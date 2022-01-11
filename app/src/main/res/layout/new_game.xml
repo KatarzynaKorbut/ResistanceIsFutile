@@ -6,14 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".NewGame">
 
+    <ImageView
+        android:id="@+id/raw"
+        android:contentDescription="@string/resistor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="105dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/powrot"
+        app:srcCompat="@drawable/resistor_raw_0" />
+
+    <ImageView
+        android:id="@+id/band_1"
+        android:contentDescription="@string/band1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/raw"
+        app:layout_constraintEnd_toEndOf="@id/raw"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@id/raw"
+        app:layout_constraintTop_toTopOf="@id/raw"
+        app:layout_constraintVertical_bias="0.558"
+        app:srcCompat="@drawable/resistor_red_1" />
+
+    <ImageView
+        android:id="@+id/band_2"
+        android:contentDescription="@string/band2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/raw"
+        app:layout_constraintEnd_toEndOf="@id/raw"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@id/raw"
+        app:layout_constraintTop_toTopOf="@id/raw"
+        app:layout_constraintVertical_bias="0.558"
+        app:srcCompat="@drawable/resistor_red_2" />
+
+    <ImageView
+        android:id="@+id/band_3"
+        android:contentDescription="@string/band3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/raw"
+        app:layout_constraintEnd_toEndOf="@id/raw"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@id/raw"
+        app:layout_constraintTop_toTopOf="@id/raw"
+        app:layout_constraintVertical_bias="0.558"
+        app:srcCompat="@drawable/resistor_red_3" />
+
+    <ImageView
+        android:id="@+id/band_4"
+        android:contentDescription="@string/band4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/raw"
+        app:layout_constraintEnd_toEndOf="@id/raw"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@id/raw"
+        app:layout_constraintTop_toTopOf="@id/raw"
+        app:layout_constraintVertical_bias="0.558"
+        app:srcCompat="@drawable/resistor_red_4" />
+
     <ImageButton
         android:id="@+id/powrot"
+        android:contentDescription="@string/powrot_do_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:contentDescription="@string/powrot_do_menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,11 @@
     <string name="learning_mode">LEARNING MODE</string>
     <string name="new_game">NEW GAME</string>
     <string name="continue_game">CONTINUE</string>
-    <string name="powrot_do_menu">CONTINUE</string>
     <string name="tlo">circuit board</string>
+    <string name="powrot_do_menu">back to menu</string>
+    <string name="resistor">resistor</string>
+    <string name="band1">band1</string>
+    <string name="band2">band2</string>
+    <string name="band3">band3</string>
+    <string name="band4">band4</string>
 </resources>
