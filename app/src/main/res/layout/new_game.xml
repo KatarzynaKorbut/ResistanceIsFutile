@@ -61,9 +61,9 @@
 
     <ImageView
         android:id="@+id/band_4"
-        android:contentDescription="@string/band4"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/band4"
         app:layout_constraintBottom_toBottomOf="@id/raw"
         app:layout_constraintEnd_toEndOf="@id/raw"
         app:layout_constraintHorizontal_bias="0.491"
@@ -74,13 +74,139 @@
 
     <ImageButton
         android:id="@+id/powrot"
-        android:contentDescription="@string/powrot_do_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/powrot_do_menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <ImageView
+        android:id="@+id/ohmmeter"
+        android:layout_width="219dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="-48dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/ohmmeter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/raw"
+        app:layout_constraintTop_toBottomOf="@+id/raw"
+        app:layout_constraintVertical_bias="0.76"
+        app:srcCompat="@drawable/ohmmeter" />
+
+    <TextView
+        android:id="@+id/resistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/resistance"
+        android:text="@string/resistance_number"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/ohmmeter"
+        app:layout_constraintStart_toStartOf="@+id/ohmmeter"
+        app:layout_constraintTop_toTopOf="@+id/ohmmeter" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/res_silver"
+        app:layout_constraintBottom_toBottomOf="@+id/ohmmeter"
+        app:layout_constraintEnd_toStartOf="@+id/ohmmeter"
+        app:layout_constraintTop_toBottomOf="@+id/raw" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button12"
+        app:layout_constraintEnd_toStartOf="@+id/button12"
+        android:backgroundTint="@color/res_gold" />
+
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button11"
+        app:layout_constraintEnd_toStartOf="@+id/button11"
+        android:backgroundTint="@color/res_white" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        android:backgroundTint="@color/res_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/button10"
+        app:layout_constraintEnd_toStartOf="@+id/button10" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button9"
+        app:layout_constraintEnd_toStartOf="@+id/button9"
+        android:backgroundTint="@color/res_purple" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button8"
+        app:layout_constraintEnd_toStartOf="@+id/button8"
+        android:backgroundTint="@color/res_blue" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button7"
+        app:layout_constraintEnd_toStartOf="@+id/button7"
+        android:backgroundTint="@color/res_green" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button6"
+        app:layout_constraintEnd_toStartOf="@+id/button6"
+        android:backgroundTint="@color/res_yellow" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        android:backgroundTint="@color/res_orange" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        android:backgroundTint="@color/res_red" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button3"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        android:backgroundTint="@color/res_brown" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="36dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        android:backgroundTint="@color/res_black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

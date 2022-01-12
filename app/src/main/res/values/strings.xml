@@ -13,4 +13,7 @@
     <string name="band2">band2</string>
     <string name="band3">band3</string>
     <string name="band4">band4</string>
+    <string name="ohmmeter">ohmmeter</string>
+    <string name="resistance">resistance</string>
+    <string name="resistance_number">8888888</string>
 </resources>
