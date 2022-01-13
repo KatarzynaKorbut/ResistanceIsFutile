@@ -30,8 +30,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@id/raw"
         app:layout_constraintTop_toTopOf="@id/raw"
-        app:layout_constraintVertical_bias="0.558"
-        app:srcCompat="@drawable/resistor_red_1" />
+        app:layout_constraintVertical_bias="0.558" />
 
     <ImageView
         android:id="@+id/band_2"
@@ -43,8 +42,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@id/raw"
         app:layout_constraintTop_toTopOf="@id/raw"
-        app:layout_constraintVertical_bias="0.558"
-        app:srcCompat="@drawable/resistor_red_2" />
+        app:layout_constraintVertical_bias="0.558" />
 
     <ImageView
         android:id="@+id/band_3"
@@ -56,8 +54,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@id/raw"
         app:layout_constraintTop_toTopOf="@id/raw"
-        app:layout_constraintVertical_bias="0.558"
-        app:srcCompat="@drawable/resistor_red_3" />
+        app:layout_constraintVertical_bias="0.558" />
 
     <ImageView
         android:id="@+id/band_4"
@@ -69,8 +66,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@id/raw"
         app:layout_constraintTop_toTopOf="@id/raw"
-        app:layout_constraintVertical_bias="0.558"
-        app:srcCompat="@drawable/resistor_red_4" />
+        app:layout_constraintVertical_bias="0.558" />
 
     <ImageButton
         android:id="@+id/powrot"
@@ -208,5 +204,49 @@
         app:layout_constraintBottom_toBottomOf="@+id/button2"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         android:backgroundTint="@color/res_black" />
+
+    <Button
+        android:id="@+id/band1_button"
+        android:layout_width="33dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="56dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="@+id/raw"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="@+id/raw"
+        app:layout_constraintTop_toTopOf="@+id/raw" />
+
+    <Button
+        android:id="@+id/band2_button"
+        android:layout_width="35dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="@+id/raw"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toStartOf="@+id/raw"
+        app:layout_constraintTop_toTopOf="@+id/raw" />
+
+    <Button
+        android:id="@+id/band3_button"
+        android:layout_width="30dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="46dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="@+id/raw"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/raw"
+        app:layout_constraintTop_toTopOf="@+id/raw" />
+
+    <Button
+        android:id="@+id/band4_button"
+        android:layout_width="35dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="@+id/raw"
+        app:layout_constraintHorizontal_bias="0.60"
+        app:layout_constraintStart_toStartOf="@+id/raw"
+        app:layout_constraintTop_toTopOf="@+id/raw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
