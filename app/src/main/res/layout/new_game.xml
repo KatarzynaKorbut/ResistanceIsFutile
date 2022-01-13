@@ -93,12 +93,12 @@
         app:srcCompat="@drawable/ohmmeter" />
 
     <TextView
-        android:id="@+id/resistance"
+        android:id="@+id/meter_resistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:contentDescription="@string/resistance"
-        android:text="@string/resistance_number"
+        android:text="@string/resistance_value_missing"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/ohmmeter"
@@ -248,5 +248,19 @@
         app:layout_constraintHorizontal_bias="0.60"
         app:layout_constraintStart_toStartOf="@+id/raw"
         app:layout_constraintTop_toTopOf="@+id/raw" />
+
+    <TextView
+        android:id="@+id/meter_tolerance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tolerance_value"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ohmmeter"
+        app:layout_constraintEnd_toEndOf="@+id/ohmmeter"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="@+id/ohmmeter"
+        app:layout_constraintTop_toTopOf="@+id/ohmmeter"
+        app:layout_constraintVertical_bias="0.68" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
