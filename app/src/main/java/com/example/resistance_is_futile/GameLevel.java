@@ -7,13 +7,14 @@ public class GameLevel {
     private int enabledColorsForResistance;
     private int enabledColorsForMultiplier;
     private int enabledColorsForTolerance;
-    private int level = 0;
+    private int level;
 
     GameLevel() {
         reset();
     }
 
     public void reset() {
+        level = 0;
         enabledColorsForResistance = 2;
         enabledColorsForMultiplier = 1;
         enabledColorsForTolerance = 1;
@@ -21,7 +22,7 @@ public class GameLevel {
 
     public void increaseDifficulty() {
         this.level = this.getLevel() + 1;
-        if (enabledColorsForResistance < 12)
+        if (enabledColorsForResistance < 10)
             ++enabledColorsForResistance;
         if (enabledColorsForResistance >= 5)
             if (enabledColorsForMultiplier < 12)
@@ -51,7 +52,7 @@ public class GameLevel {
     }
 
     int colorsNeeded() {
-        return enabledColorsForResistance;
+        return Math.max(enabledColorsForResistance, enabledColorsForMultiplier);
     }
 
     private boolean isBandEnabled(int bandNumber) {
@@ -72,7 +73,7 @@ public class GameLevel {
             switch (bandNumber) {
                 case 0:
                 case 1:
-                    return colorNumber < enabledColorsForResistance;
+                    return colorNumber < enabledColorsForResistance || enabledColorsForResistance == 10;
                 case 2:
                     return colorNumber < enabledColorsForMultiplier;
                 case 3:

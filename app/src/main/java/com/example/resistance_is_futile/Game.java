@@ -2,10 +2,14 @@ package com.example.resistance_is_futile;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
+
+import java.util.Arrays;
 
 public class Game extends GameBase {
     public static final String CONTINUE_GAME = "continue";
@@ -42,5 +46,18 @@ public class Game extends GameBase {
         double randomTolerance = calculateTolerance(randomBandColors);
         TextView givenResistance = findViewById(R.id.given_resistance);
         givenResistance.setText(getResistanceText(randomResistance, R.string.given_resistance));
+    }
+
+    public void onMeterSwitchChange(CompoundButton meterSwitch, boolean isChecked) {
+        super.onMeterSwitchChange(meterSwitch, isChecked);
+        if (isChecked) {
+            if (Arrays.equals(bandValues, randomBandColors)) {
+                int newLevel = gameLevel.getLevel() + 1;
+                Toast.makeText(this, getString(R.string.congratulations, newLevel), Toast.LENGTH_SHORT).show();
+                setLevel(newLevel);
+            } else {
+                Toast.makeText(this, R.string.wrong_answer, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
