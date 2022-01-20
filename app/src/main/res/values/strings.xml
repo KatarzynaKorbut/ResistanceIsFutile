@@ -37,4 +37,5 @@
     <string name="resistance_value">%1$s %2$sΩ</string>
     <string name="tolerance_value_unknown">\?</string>
     <string name="tolerance_value">±%1$s%%</string>
+    <string name="given_resistance">%1$s %2$sΩ</string>
 </resources>

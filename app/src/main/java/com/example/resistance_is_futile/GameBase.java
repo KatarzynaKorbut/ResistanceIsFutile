@@ -5,11 +5,14 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import java.util.Arrays;
 import java.util.List;
@@ -45,6 +48,10 @@ public class GameBase extends AppCompatActivity {
 
         TextView meter_tolerance = findViewById(R.id.meter_tolerance);
         meter_tolerance.setText(getString(R.string.tolerance_value, getText(R.string.tolerance_value_unknown)));
+
+        findViewById(R.id.meter_resistance).setVisibility(View.INVISIBLE);
+        SwitchCompat ohmmeterSwitch = findViewById(R.id.ohmmeter_switch);
+        ohmmeterSwitch.setOnCheckedChangeListener(this::onMeterSwitchChange);
     }
 
     void setLevel(int level) {
@@ -114,6 +121,14 @@ public class GameBase extends AppCompatActivity {
             Toast.makeText(this,
                     getString(R.string.unavailable_band_color, bandNumber + 1, getColorString(colorNumber)),
                     Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onMeterSwitchChange(CompoundButton meterSwitch, boolean isChecked) {
+        if (meterSwitch.isChecked()) {
+            findViewById(R.id.meter_resistance).setVisibility(View.VISIBLE);
+        } else {
+            findViewById(R.id.meter_resistance).setVisibility(View.INVISIBLE);
         }
     }
 

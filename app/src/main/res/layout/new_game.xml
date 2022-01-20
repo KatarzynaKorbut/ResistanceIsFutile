@@ -263,4 +263,36 @@
         app:layout_constraintTop_toTopOf="@+id/ohmmeter"
         app:layout_constraintVertical_bias="0.68" />
 
+    <TextView
+        android:id="@+id/given_resistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="-9"
+        android:rotationX="45"
+        android:text="@string/given_resistance"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/raw"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="@+id/raw"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/ohmmeter_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:showText="false"
+        android:splitTrack="false"
+        app:layout_constraintBottom_toBottomOf="@+id/ohmmeter"
+        app:layout_constraintEnd_toEndOf="@+id/ohmmeter"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toStartOf="@+id/ohmmeter"
+        app:layout_constraintTop_toTopOf="@+id/ohmmeter"
+        app:layout_constraintVertical_bias="0.92"
+        tools:checked="false" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
