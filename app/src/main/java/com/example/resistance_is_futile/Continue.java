@@ -2,10 +2,11 @@ package com.example.resistance_is_futile;
 
 import android.os.Bundle;
 
-public class NewGame extends GameBase {
+public class Continue extends GameBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setLevel(gameLevel.getLevel());
+        int savedGameLevel = 8; // TODO: odczytać zapisany poziom
+        setLevel(savedGameLevel);
     }
 }

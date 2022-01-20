@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private Button button_how_to_play;
     private Button button_learning_mode;
+    private Button button_continue;
     private Button button_new_game;
 
     @Override
@@ -25,13 +26,14 @@ public class MainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        button_how_to_play = findViewById(R.id.zasady);
+        button_how_to_play = findViewById(R.id.how_to_play);
         button_how_to_play.setOnClickListener(v -> openHowToPlay());
         button_learning_mode = findViewById(R.id.learning_mode);
         button_learning_mode.setOnClickListener(v -> openLearningMode());
+        button_continue = findViewById(R.id.continue_game);
+        button_continue.setOnClickListener(v -> openContinue());
         button_new_game = findViewById(R.id.start_new_game);
         button_new_game.setOnClickListener(v -> openNewGame());
-
     }
 
     public void openHowToPlay() {
@@ -41,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openLearningMode() {
         Intent intent = new Intent(this, LearningMode.class);
+        startActivity(intent);
+    }
+
+    public void openContinue() {
+        Intent intent = new Intent(this, Continue.class);
         startActivity(intent);
     }
 

@@ -14,6 +14,9 @@
             android:name=".NewGame"
             android:exported="true" />
         <activity
+            android:name=".Continue"
+            android:exported="true" />
+        <activity
             android:name=".LearningMode"
             android:exported="true" />
         <activity
