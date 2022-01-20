@@ -1,5 +1,7 @@
 package com.example.resistance_is_futile;
 
+import java.util.Random;
+
 public class GameLevel {
     final private int[] TOLERANCE_COLORS = {1, 2, 5, 6, 7, 8, 10, 11};
     private int enabledColorsForResistance;
@@ -36,6 +38,16 @@ public class GameLevel {
         reset();
         while (level-- > 0)
             increaseDifficulty();
+    }
+
+    public int[] generateRandomBandsColors() {
+        Random random = new Random();
+        int[] bandColors = new int[4];
+        bandColors[0] = random.nextInt(enabledColorsForResistance);
+        bandColors[1] = random.nextInt(enabledColorsForResistance);
+        bandColors[2] = random.nextInt(enabledColorsForMultiplier);
+        bandColors[3] = TOLERANCE_COLORS[random.nextInt(enabledColorsForTolerance)];
+        return bandColors;
     }
 
     int colorsNeeded() {

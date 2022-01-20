@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +19,7 @@ import java.util.List;
 public class GameBase extends AppCompatActivity {
     protected GameLevel gameLevel;
     private static final int NO_COLOR = -1;
-    private int[] bandValues = new int[]{NO_COLOR, NO_COLOR, NO_COLOR, NO_COLOR};
+    protected int[] bandValues = new int[]{NO_COLOR, NO_COLOR, NO_COLOR, NO_COLOR};
     private int selectedColorButton = -1;
 
     @Override
@@ -66,7 +65,7 @@ public class GameBase extends AppCompatActivity {
         for (int bandNumber = 0; bandNumber < BANDS.length; ++bandNumber)
             setBandColor(bandNumber, BANDS[bandNumber], gameLevel.getInitialBandColor(bandNumber));
 
-        setMeter(calculateResistance(), calculateTolerance());
+        setMeter(calculateResistance(bandValues), calculateTolerance(bandValues));
     }
 
     public void onColorButtonClicked(View v) {
@@ -118,7 +117,7 @@ public class GameBase extends AppCompatActivity {
 
         if (gameLevel.isColorAvailableForBand(colorNumber, bandNumber)) {
             setBandColor(bandNumber, bandId, colorNumber);
-            setMeter(calculateResistance(), calculateTolerance());
+            setMeter(calculateResistance(bandValues), calculateTolerance(bandValues));
         }
         else if (colorNumber != bandValues[bandNumber]) {
             Toast.makeText(this,
@@ -151,30 +150,8 @@ public class GameBase extends AppCompatActivity {
         TextView meter_resistance = findViewById(R.id.meter_resistance);
         if (resistance < 0)
             meter_resistance.setText(R.string.resistance_value_missing);
-        else {
-            String prefix;
-            double base = resistance;
-            if (resistance >= 1e9) {
-                prefix = "G";
-                base /= 1e9;
-            }
-            else if (resistance >= 1e6) {
-                prefix = "M";
-                base /= 1e6;
-            }
-            else if (resistance >= 1e3) {
-                prefix = "k";
-                base /= 1e3;
-            }
-            else if (resistance >= 1e0 || resistance == 0) {
-                prefix = "";
-            }
-            else {
-                prefix = "m";
-                base /= 1e-3;
-            }
-            meter_resistance.setText(getString(R.string.resistance_value, doubleToString(base), prefix));
-        }
+        else
+            meter_resistance.setText(getResistanceText(resistance, R.string.resistance_value));
 
         TextView meter_tolerance = findViewById(R.id.meter_tolerance);
         String tolerance_text;
@@ -183,6 +160,31 @@ public class GameBase extends AppCompatActivity {
         else
             tolerance_text = doubleToString(tolerance);
         meter_tolerance.setText(getString(R.string.tolerance_value, tolerance_text));
+    }
+
+    protected String getResistanceText(double resistance, int textId) {
+        String prefix;
+        double base = resistance;
+        if (resistance >= 1e9) {
+            prefix = "G";
+            base /= 1e9;
+        }
+        else if (resistance >= 1e6) {
+            prefix = "M";
+            base /= 1e6;
+        }
+        else if (resistance >= 1e3) {
+            prefix = "k";
+            base /= 1e3;
+        }
+        else if (resistance >= 1e0 || resistance == 0) {
+            prefix = "";
+        }
+        else {
+            prefix = "m";
+            base /= 1e-3;
+        }
+        return getString(textId, doubleToString(base), prefix);
     }
 
     private void setBandColor(int bandNumber, int bandId, int colorNumber) {
@@ -206,12 +208,12 @@ public class GameBase extends AppCompatActivity {
         }
     }
 
-    boolean resistanceAvailable() {
+    boolean resistanceAvailable(int[] bandValues) {
         return bandValues[0] != NO_COLOR && bandValues[1] != NO_COLOR && bandValues[2] != NO_COLOR;
     }
 
-    double calculateResistance() {
-        if (resistanceAvailable()) {
+    double calculateResistance(int[] bandValues) {
+        if (resistanceAvailable(bandValues)) {
             int exponent = bandValues[2];
             if (exponent >= 10)
                 exponent = 9 - exponent;
@@ -221,13 +223,13 @@ public class GameBase extends AppCompatActivity {
             return -1.0f;
     }
 
-    boolean toleranceAvailable() {
+    boolean toleranceAvailable(int[] bandValues) {
         return bandValues[3] != NO_COLOR;
     }
 
     private static final double[] TOLERANCES = {0, 1, 2, 0, 0, 0.5, 0.25, 0.1, 0.05, 0, 5, 10};
-    double calculateTolerance() {
-        if (toleranceAvailable())
+    double calculateTolerance(int[] bandValues) {
+        if (toleranceAvailable(bandValues))
             return TOLERANCES[bandValues[3]];
         else
             return 0;

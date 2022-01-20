@@ -2,6 +2,7 @@ package com.example.resistance_is_futile;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
@@ -30,5 +31,16 @@ public class Game extends GameBase {
         super.onBandButtonClicked(v);
         SwitchCompat ohmmeterSwitch = findViewById(R.id.ohmmeter_switch);
         ohmmeterSwitch.setChecked(false);
+    }
+
+    int[] randomBandColors;
+
+    void setLevel(int level) {
+        super.setLevel(level);
+        randomBandColors = gameLevel.generateRandomBandsColors();
+        double randomResistance = calculateResistance(randomBandColors);
+        double randomTolerance = calculateTolerance(randomBandColors);
+        TextView givenResistance = findViewById(R.id.given_resistance);
+        givenResistance.setText(getResistanceText(randomResistance, R.string.given_resistance));
     }
 }
