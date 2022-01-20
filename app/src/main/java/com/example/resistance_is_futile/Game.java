@@ -1,15 +1,16 @@
 package com.example.resistance_is_futile;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
-
-import java.util.Arrays;
 
 public class Game extends GameBase {
     public static final String CONTINUE_GAME = "continue";
@@ -22,11 +23,27 @@ public class Game extends GameBase {
     }
 
     @Override
+    public void onRestoreInstanceState(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onRestoreInstanceState(savedInstanceState, persistentState);
+        setLevel(savedInstanceState.getInt(LEVEL, gameLevel.getLevel()));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt(LEVEL, gameLevel.getLevel());
+        editor.apply();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int level = gameLevel.getLevel();
-        if (getIntent().getBooleanExtra(CONTINUE_GAME, true) && savedInstanceState != null) {
-            level = savedInstanceState.getInt(LEVEL, gameLevel.getLevel());
+        int level = 0;
+        if (getIntent().getBooleanExtra(CONTINUE_GAME, true)) {
+            SharedPreferences settings = getPreferences(MODE_PRIVATE);
+            level = settings.getInt(LEVEL, 0);
         }
         setLevel(level);
     }
