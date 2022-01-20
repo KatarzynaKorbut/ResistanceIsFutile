@@ -7,6 +7,7 @@
     <string name="new_game">NEW GAME</string>
     <string name="continue_game">CONTINUE</string>
     <string name="tlo">circuit board</string>
+    <string name="how_to_play_image">how to play</string>
     <string name="powrot_do_menu">back to menu</string>
     <string name="resistor">resistor</string>
     <string name="band1">band1</string>
@@ -40,4 +41,14 @@
     <string name="given_resistance">%1$s %2$sΩ</string>
     <string name="congratulations">CONGRATULATIONS! Increasing difficulty (level %1$d)</string>
     <string name="wrong_answer">Wrong answer - try again</string>
+
+    <string name="goal">YOUR GOAL</string>
+    <string name="label_resistance">RESISTANCE BANDS</string>
+    <string name="label_multiplier">MULTIPLIER BAND</string>
+    <string name="label_tolerance">TOLERANCE BAND</string>
+    <string name="meter_resistance">SET RESISTANCE</string>
+    <string name="meter_tolerance">TOLERANCE</string>
+    <string name="meter_switch">CHECK HERE</string>
+    <string name="buttons_resistance">COLORS FOR RESISTANCE BANDS</string>
+    <string name="buttons_tolerance">COLORS FOR MULTIPLIER BAND</string>
 </resources>

@@ -23,4 +23,6 @@
     <color name="res_white">#FFFFFF</color>
     <color name="res_silver">#CBCCD0 </color>
     <color name="res_gold">#CB9B2D</color>
+
+    <color name="label">#1dc0e1</color>
 </resources>

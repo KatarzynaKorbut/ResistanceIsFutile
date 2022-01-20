@@ -16,4 +16,146 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <ImageView
+        android:id="@+id/how_to_play_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/how_to_play_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/how_to_play" />
+
+    <TextView
+        android:id="@+id/label_resistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_resistance"
+        android:textColor="@color/label"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/how_to_play_image"
+        app:layout_constraintEnd_toEndOf="@+id/how_to_play_image"
+        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintStart_toStartOf="@+id/how_to_play_image"
+        app:layout_constraintTop_toTopOf="@+id/how_to_play_image"
+        app:layout_constraintVertical_bias="0.545" />
+
+    <TextView
+        android:id="@+id/label_multiplier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_multiplier"
+        android:textColor="@color/label"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/how_to_play_image"
+        app:layout_constraintEnd_toEndOf="@+id/how_to_play_image"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="@+id/how_to_play_image"
+        app:layout_constraintTop_toTopOf="@+id/how_to_play_image"
+        app:layout_constraintVertical_bias="0.528" />
+
+    <TextView
+        android:id="@+id/label_tolerance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_tolerance"
+        android:textColor="@color/label"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/how_to_play_image"
+        app:layout_constraintEnd_toEndOf="@+id/how_to_play_image"
+        app:layout_constraintHorizontal_bias="0.775"
+        app:layout_constraintStart_toStartOf="@+id/how_to_play_image"
+        app:layout_constraintTop_toTopOf="@+id/how_to_play_image"
+        app:layout_constraintVertical_bias="0.429" />
+
+    <TextView
+        android:id="@+id/label_meter_resistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meter_resistance"
+        android:textColor="@color/label"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/how_to_play_image"
+        app:layout_constraintEnd_toEndOf="@+id/how_to_play_image"
+        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintStart_toStartOf="@+id/how_to_play_image"
+        app:layout_constraintTop_toTopOf="@+id/how_to_play_image"
+        app:layout_constraintVertical_bias="0.56" />
+
+    <TextView
+        android:id="@+id/label_meter_tolerance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meter_tolerance"
+        android:textColor="@color/label"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/how_to_play_image"
+        app:layout_constraintEnd_toEndOf="@+id/how_to_play_image"
+        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintStart_toStartOf="@+id/how_to_play_image"
+        app:layout_constraintTop_toTopOf="@+id/how_to_play_image"
+        app:layout_constraintVertical_bias="0.77" />
+
+    <TextView
+        android:id="@+id/label_meter_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meter_switch"
+        android:textColor="@color/label"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/how_to_play_image"
+        app:layout_constraintEnd_toEndOf="@+id/how_to_play_image"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toStartOf="@+id/how_to_play_image"
+        app:layout_constraintTop_toTopOf="@+id/how_to_play_image"
+        app:layout_constraintVertical_bias="0.90999997" />
+
+    <TextView
+        android:id="@+id/button_resistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttons_resistance"
+        android:textColor="@color/label"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/how_to_play_image"
+        app:layout_constraintEnd_toEndOf="@+id/how_to_play_image"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="@+id/how_to_play_image"
+        app:layout_constraintTop_toTopOf="@+id/how_to_play_image"
+        app:layout_constraintVertical_bias="0.639" />
+
+    <TextView
+        android:id="@+id/button_multiplier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttons_tolerance"
+        android:textColor="@color/label"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/how_to_play_image"
+        app:layout_constraintEnd_toEndOf="@+id/how_to_play_image"
+        app:layout_constraintHorizontal_bias="0.374"
+        app:layout_constraintStart_toStartOf="@+id/how_to_play_image"
+        app:layout_constraintTop_toTopOf="@+id/how_to_play_image"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/given_resistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="-9"
+        android:rotationX="45"
+        android:text="@string/goal"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/how_to_play_image"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="@+id/how_to_play_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
