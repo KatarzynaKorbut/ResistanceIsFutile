@@ -55,7 +55,7 @@ public class GameLevel {
         return Math.max(enabledColorsForResistance, enabledColorsForMultiplier);
     }
 
-    private boolean isBandEnabled(int bandNumber) {
+    public boolean isBandEnabled(int bandNumber) {
         switch (bandNumber) {
             case 0:
             case 1:

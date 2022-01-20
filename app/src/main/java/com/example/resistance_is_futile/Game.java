@@ -45,13 +45,21 @@ public class Game extends GameBase {
         double randomResistance = calculateResistance(randomBandColors);
         double randomTolerance = calculateTolerance(randomBandColors);
         TextView givenResistance = findViewById(R.id.given_resistance);
-        givenResistance.setText(getResistanceText(randomResistance, R.string.given_resistance));
+        String givenResistanceText = getResistanceText(randomResistance, R.string.given_resistance);
+        if (gameLevel.isBandEnabled(3))
+            givenResistanceText += " " + getString(R.string.tolerance_value, doubleToString(randomTolerance));
+        givenResistance.setText(givenResistanceText);
+    }
+
+    boolean equalResistanceAndTolerance(int[] a, int[] b) {
+        return calculateResistance(a) == calculateResistance(b) &&
+                calculateTolerance(a) == calculateTolerance(b);
     }
 
     public void onMeterSwitchChange(CompoundButton meterSwitch, boolean isChecked) {
         super.onMeterSwitchChange(meterSwitch, isChecked);
         if (isChecked) {
-            if (Arrays.equals(bandValues, randomBandColors)) {
+            if (equalResistanceAndTolerance(bandValues, randomBandColors)) {
                 int newLevel = gameLevel.getLevel() + 1;
                 Toast.makeText(this, getString(R.string.congratulations, newLevel), Toast.LENGTH_SHORT).show();
                 setLevel(newLevel);
