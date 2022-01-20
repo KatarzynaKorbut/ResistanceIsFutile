@@ -5,10 +5,10 @@ public class GameLevel {
     private int enabledColorsForResistance;
     private int enabledColorsForMultiplier;
     private int enabledColorsForTolerance;
-    private int level;
+    private int level = 0;
 
-    GameLevel(int level) {
-        setDifficulty(level);
+    GameLevel() {
+        reset();
     }
 
     public void reset() {
@@ -26,6 +26,10 @@ public class GameLevel {
                 ++enabledColorsForMultiplier;
             else if (enabledColorsForTolerance < TOLERANCE_COLORS.length)
                 ++enabledColorsForTolerance;
+    }
+
+    public int getMaxLevel() {
+        return 21;
     }
 
     public void setDifficulty(int level) {

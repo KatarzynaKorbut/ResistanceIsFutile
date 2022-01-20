@@ -35,7 +35,7 @@ public class NewGame extends AppCompatActivity {
 
         findViewById(R.id.powrot).setOnClickListener(v -> openMainActivity());
 
-        gameLevel = new GameLevel(0); // TODO: odczytać z zapisanego stanu
+        gameLevel = new GameLevel();
 
         for (int colorButtonId : COLOR_BUTTONS)
             findViewById(colorButtonId).setOnClickListener(this::onColorButtonClicked);
@@ -43,13 +43,14 @@ public class NewGame extends AppCompatActivity {
         for (int bandButtonId : BAND_BUTTONS)
             findViewById(bandButtonId).setOnClickListener(this::onBandButtonClicked);
 
-        setLevel();
+        setLevel(gameLevel.getLevel());  // TODO: odczytać z zapisanego stanu
 
         TextView meter_tolerance = findViewById(R.id.meter_tolerance);
         meter_tolerance.setText(getString(R.string.tolerance_value, getText(R.string.tolerance_value_unknown)));
     }
 
-    void setLevel() {
+    void setLevel(int level) {
+        gameLevel.setDifficulty(level);
         int maxColorNumber = gameLevel.colorsNeeded() - 1;
         for (int colorNumber = 0; colorNumber < COLOR_BUTTONS.size(); ++colorNumber) {
             int colorButtonId = COLOR_BUTTONS.get(colorNumber);
