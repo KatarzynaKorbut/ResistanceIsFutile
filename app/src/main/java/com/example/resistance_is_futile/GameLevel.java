@@ -44,8 +44,10 @@ public class GameLevel {
     public int[] generateRandomBandsColors() {
         Random random = new Random();
         int[] bandColors = new int[4];
-        bandColors[0] = random.nextInt(enabledColorsForResistance);
-        bandColors[1] = random.nextInt(enabledColorsForResistance);
+        do {
+            bandColors[0] = random.nextInt(enabledColorsForResistance);
+            bandColors[1] = random.nextInt(enabledColorsForResistance);
+        } while (bandColors[0] + bandColors[1] == 0); // unikaj losowania oporu=0
         bandColors[2] = random.nextInt(enabledColorsForMultiplier);
         bandColors[3] = TOLERANCE_COLORS[random.nextInt(enabledColorsForTolerance)];
         return bandColors;
