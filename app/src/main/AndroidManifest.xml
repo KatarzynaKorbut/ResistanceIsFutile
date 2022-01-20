@@ -11,10 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ResistanceIsFutile">
         <activity
-            android:name=".NewGame"
-            android:exported="true" />
-        <activity
-            android:name=".Continue"
+            android:name=".Game"
             android:exported="true" />
         <activity
             android:name=".LearningMode"

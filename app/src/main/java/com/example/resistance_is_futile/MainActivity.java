@@ -47,12 +47,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openContinue() {
-        Intent intent = new Intent(this, Continue.class);
+        Intent intent = new Intent(this, Game.class);
+        intent.putExtra(Game.CONTINUE_GAME, true);
         startActivity(intent);
     }
 
     public void openNewGame() {
-        Intent intent = new Intent(this, NewGame.class);
+        Intent intent = new Intent(this, Game.class);
+        intent.putExtra(Game.CONTINUE_GAME, false);
         startActivity(intent);
     }
 }
