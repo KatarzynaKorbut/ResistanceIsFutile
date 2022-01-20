@@ -50,6 +50,7 @@ public class GameBase extends AppCompatActivity {
         meter_tolerance.setText(getString(R.string.tolerance_value, getText(R.string.tolerance_value_unknown)));
 
         findViewById(R.id.meter_resistance).setVisibility(View.INVISIBLE);
+        findViewById(R.id.meter_tolerance).setVisibility(View.INVISIBLE);
         SwitchCompat ohmmeterSwitch = findViewById(R.id.ohmmeter_switch);
         ohmmeterSwitch.setOnCheckedChangeListener(this::onMeterSwitchChange);
     }
@@ -64,6 +65,8 @@ public class GameBase extends AppCompatActivity {
         }
         for (int bandNumber = 0; bandNumber < BANDS.length; ++bandNumber)
             setBandColor(bandNumber, BANDS[bandNumber], gameLevel.getInitialBandColor(bandNumber));
+
+        setMeter(calculateResistance(), calculateTolerance());
     }
 
     public void onColorButtonClicked(View v) {
@@ -125,11 +128,9 @@ public class GameBase extends AppCompatActivity {
     }
 
     public void onMeterSwitchChange(CompoundButton meterSwitch, boolean isChecked) {
-        if (meterSwitch.isChecked()) {
-            findViewById(R.id.meter_resistance).setVisibility(View.VISIBLE);
-        } else {
-            findViewById(R.id.meter_resistance).setVisibility(View.INVISIBLE);
-        }
+        int visibility = meterSwitch.isChecked() ? View.VISIBLE : View.INVISIBLE;
+        findViewById(R.id.meter_resistance).setVisibility(visibility);
+        findViewById(R.id.meter_tolerance).setVisibility(visibility);
     }
 
     private String getColorString(int colorNumber) {

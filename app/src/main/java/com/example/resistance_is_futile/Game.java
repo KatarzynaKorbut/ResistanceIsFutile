@@ -1,8 +1,10 @@
 package com.example.resistance_is_futile;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
 
 public class Game extends GameBase {
     public static final String CONTINUE_GAME = "continue";
@@ -22,5 +24,11 @@ public class Game extends GameBase {
             level = savedInstanceState.getInt(LEVEL, gameLevel.getLevel());
         }
         setLevel(level);
+    }
+
+    public void onBandButtonClicked(View v) {
+        super.onBandButtonClicked(v);
+        SwitchCompat ohmmeterSwitch = findViewById(R.id.ohmmeter_switch);
+        ohmmeterSwitch.setChecked(false);
     }
 }
