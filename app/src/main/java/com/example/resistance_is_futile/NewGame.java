@@ -15,6 +15,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NewGame extends AppCompatActivity {
+    protected GameLevel gameLevel;
+    private static final int NO_COLOR = -1;
+    private int[] bandValues = new int[]{NO_COLOR, NO_COLOR, NO_COLOR, NO_COLOR};
+    private int selectedColorButton = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,31 +35,30 @@ public class NewGame extends AppCompatActivity {
 
         findViewById(R.id.powrot).setOnClickListener(v -> openMainActivity());
 
-        findViewById(R.id.button1).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button2).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button3).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button4).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button5).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button6).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button7).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button8).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button9).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button10).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button11).setOnClickListener(this::onColorButtonClicked);
-        findViewById(R.id.button12).setOnClickListener(this::onColorButtonClicked);
+        gameLevel = new GameLevel(0); // TODO: odczytać z zapisanego stanu
 
-        findViewById(R.id.band1_button).setOnClickListener(this::onBandButtonClicked);
-        findViewById(R.id.band2_button).setOnClickListener(this::onBandButtonClicked);
-        findViewById(R.id.band3_button).setOnClickListener(this::onBandButtonClicked);
-        findViewById(R.id.band4_button).setOnClickListener(this::onBandButtonClicked);
+        for (int colorButtonId : COLOR_BUTTONS)
+            findViewById(colorButtonId).setOnClickListener(this::onColorButtonClicked);
+
+        for (int bandButtonId : BAND_BUTTONS)
+            findViewById(bandButtonId).setOnClickListener(this::onBandButtonClicked);
+
+        setLevel();
 
         TextView meter_tolerance = findViewById(R.id.meter_tolerance);
         meter_tolerance.setText(getString(R.string.tolerance_value, getText(R.string.tolerance_value_unknown)));
     }
 
-    private static final int NO_COLOR = -1;
-    private int selectedColorButton = -1;
-    private int[] bandValues = new int[]{NO_COLOR, NO_COLOR, NO_COLOR, NO_COLOR};
+    void setLevel() {
+        int maxColorNumber = gameLevel.colorsNeeded() - 1;
+        for (int colorNumber = 0; colorNumber < COLOR_BUTTONS.size(); ++colorNumber) {
+            int colorButtonId = COLOR_BUTTONS.get(colorNumber);
+            Button colorButton = findViewById(colorButtonId);
+            colorButton.setVisibility(colorNumber <= maxColorNumber ? View.VISIBLE : View.INVISIBLE);
+        }
+        for (int bandNumber = 0; bandNumber < BANDS.length; ++bandNumber)
+            setBandColor(bandNumber, BANDS[bandNumber], gameLevel.getInitialBandColor(bandNumber));
+    }
 
     public void onColorButtonClicked(View v) {
         int buttonId = v.getId();
@@ -103,8 +107,22 @@ public class NewGame extends AppCompatActivity {
         int bandId = BANDS[bandNumber];
         int colorNumber = COLOR_BUTTONS.indexOf(selectedColorButton);
 
-        setBandColor(bandNumber, bandId, colorNumber);
-        setMeter(calculateResistance(), calculateTolerance());
+        if (gameLevel.isColorAvailableForBand(colorNumber, bandNumber)) {
+            setBandColor(bandNumber, bandId, colorNumber);
+            setMeter(calculateResistance(), calculateTolerance());
+        }
+        else if (colorNumber != bandValues[bandNumber]) {
+            Toast.makeText(this,
+                    getString(R.string.unavailable_band_color, bandNumber + 1, getColorString(colorNumber)),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private String getColorString(int colorNumber) {
+        if (colorNumber == NO_COLOR)
+            return getString(R.string.color_unset);
+        else
+            return getString(COLOR_NAMES[colorNumber]);
     }
 
     static String doubleToString(double value) {
@@ -157,9 +175,9 @@ public class NewGame extends AppCompatActivity {
         if (colorNumber != -1) {
             int bandResource = bandResources[colorNumber][bandNumber];
             if (bandResource == BAND_NOT_ALLOWED) {
-                String color = getString(COLOR_NAMES[colorNumber]);
-                //Toast.makeText(this, "Band " + (bandNumber + 1) + " can't be " + color, Toast.LENGTH_SHORT).show();
-                Toast.makeText(this, getString(R.string.invalid_band_color, bandNumber + 1, color), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,
+                        getString(R.string.invalid_band_color, bandNumber + 1, getColorString(colorNumber)),
+                        Toast.LENGTH_SHORT).show();
             }
             else {
                 band.setImageResource(bandResource);

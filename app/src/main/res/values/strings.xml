@@ -17,6 +17,7 @@
     <string name="resistance">resistance</string>
     <string name="resistance_number">8888888</string>
 
+    <string name="color_unset">empty</string>
     <string name="color_black">black</string>
     <string name="color_brown">brown</string>
     <string name="color_red">red</string>
@@ -31,6 +32,7 @@
     <string name="color_silver">silver</string>
 
     <string name="invalid_band_color">Band %1$d can\'t be %2$s</string>
+    <string name="unavailable_band_color">You can\'t set band %1$d to %2$s yet</string>
     <string name="resistance_value_missing">--------</string>
     <string name="resistance_value">%1$s %2$sΩ</string>
     <string name="tolerance_value_unknown">\?</string>
